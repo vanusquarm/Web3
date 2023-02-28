@@ -138,7 +138,7 @@ valueLockedBy :: TxInfo -> ValidatorHash -> Value
 <td>
 
 ```
-tx: Tx = Tx::new(..);
+tx: Tx = Tx::new(..)
 // Signature
 is_signed_by(pubkeyhash: PubKeyHash) -> Bool
 eg. tx.is_signed_by(mPubKeyHash)
@@ -154,6 +154,43 @@ tx.value_sent_to_datum(addr: PubKeyHash, datum: AnyType, is_inline: Bool) -> Val
 tx.value_locked_by(script_hash: ValidatorHash) -> Value
 tx.value_locked_by_datum(script_hash: ValidatorHash, datum: AnyType, is_inline: Bool) -> Value
 
+```
+
+</td>
+</tr>
+</table>
+
+<h4> TxOutput Constructor </h4>
+
+<table>
+<tr>
+<td> Plutus (Haskell) </td> <td> Helios </td>
+</tr>
+<tr>
+<td>
+
+```
+data TxOut = TxOut {
+    txOutAddress   :: Address,
+    txOutValue     :: Value,
+    txOutDatumHash :: Maybe DatumHash
+    }
+    
+    
+```
+
+</td>
+
+<td>
+
+```
+new helios.TxOutput(
+    address:   helios.Address,
+    value:     helios.Value,
+    datum:     ?helios.Datum = null,
+    refScript: ?helios.UplcProgram = null
+)
+    
 ```
 
 </td>
