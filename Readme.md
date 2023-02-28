@@ -160,7 +160,7 @@ tx.value_locked_by_datum(script_hash: ValidatorHash, datum: AnyType, is_inline: 
 </tr>
 </table>
 
-<h4> TxOutput Constructor </h4>
+<h4> Transaction Output Constructor </h4>
 
 <table>
 <tr>
@@ -184,12 +184,47 @@ data TxOut = TxOut {
 <td>
 
 ```
-new helios.TxOutput(
-    address:   helios.Address,
-    value:     helios.Value,
-    datum:     ?helios.Datum = null,
-    refScript: ?helios.UplcProgram = null
-)
+TxOutput::new(
+    address: Address,
+    value:   Value,
+    datum:   OutputDatum
+) -> TxOutput
+
+    
+```
+
+</td>
+</tr>
+</table>
+
+<h4> Getter Methods </h4>
+
+<table>
+<tr>
+<td> Plutus (Haskell) </td> <td> Helios </td>
+</tr>
+<tr>
+<td>
+
+```
+tx_output TxOut
+
+txOutAddress   tx_output :: Address,
+txOutValue     tx_output :: Value,
+txOutDatumHash tx_output :: Maybe DatumHash
+    
+```
+
+</td>
+
+<td>
+
+```
+tx_output: TxOutput = TxOutput::new(..)
+    
+tx_output.address -> Address
+tx_output.value   -> Value
+tx_output.datum   -> OutputDatum
     
 ```
 
