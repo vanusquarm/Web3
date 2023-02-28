@@ -104,3 +104,58 @@ tx.datums      -> Map[DatumHash]AnyType
 </td>
 </tr>
 </table>
+
+<h4> Validator Methods </h4>
+
+<table>
+<tr>
+<td> Plutus (Haskell) </td> <td> Helios </td>
+</tr>
+<tr>
+<td>
+
+```
+tx:: TxInfo
+-- Signature
+txSignedBy :: TxInfo -> PubKeyHash -> Bool
+eg. txSignedBy tx mPubKeyHash
+
+findDatumHash :: Datum -> TxInfo -> Maybe DatumHash
+getContinuingOutputs :: ScriptContext -> [TxOut]
+--
+valueLockedBy :: TxInfo -> ValidatorHash -> Value
+scriptOutputsAt :: ValidatorHash -> TxInfo -> [(DatumHash, Value)]
+--
+valuePaidTo :: TxInfo -> PubKeyHash -> Value
+--
+valueLockedBy :: TxInfo -> ValidatorHash -> Value
+--
+
+```
+
+</td>
+
+<td>
+
+```
+tx: Tx = Tx::new(..);
+// Signature
+is_signed_by(pubkeyhash: PubKeyHash) -> Bool
+eg. tx.is_signed_by(mPubKeyHash)
+
+tx.find_datum_hash(data: AnyType) -> ByteArray
+tx.outputs_sent_to(pkh: PubKeyHash) -> []TxOutput
+tx.outputs_sent_to_datum(pkh: PubKeyHash, datum: AnyType, is_inline: Bool) -> []TxOutput
+tx.value_locked_by(script_hash: ValidatorHash) -> Value
+tx.outputs_locked_by(script_hash: ValidatorHash) -> []TxOutput
+tx.outputs_locked_by_datum(script_hash: ValidatorHash, datum: AnyType, is_inline: Bool) -> []TxOutput
+tx.value_sent_to(addr: PubKeyHash) -> Value
+tx.value_sent_to_datum(addr: PubKeyHash, datum: AnyType, is_inline: Bool) -> Value
+tx.value_locked_by(script_hash: ValidatorHash) -> Value
+tx.value_locked_by_datum(script_hash: ValidatorHash, datum: AnyType, is_inline: Bool) -> Value
+
+```
+
+</td>
+</tr>
+</table>
