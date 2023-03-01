@@ -209,8 +209,8 @@ TxOutput::new(
 ```
 tx_output TxOut
 
-txOutAddress   tx_output :: Address,
-txOutValue     tx_output :: Value,
+txOutAddress   tx_output :: Address
+txOutValue     tx_output :: Value
 txOutDatumHash tx_output :: Maybe DatumHash
     
 ```
