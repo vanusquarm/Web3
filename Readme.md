@@ -231,3 +231,39 @@ tx_output.datum   -> OutputDatum
 </td>
 </tr>
 </table>
+
+<h2> Script Context </h2>
+
+<table>
+<tr>
+<td> Plutus (Haskell) </td> <td> Helios </td>
+</tr>
+<tr>
+<td>
+
+```
+-- The context that the currently-executing script can access.
+data ScriptContext = ScriptContext
+    { scriptContextTxInfo  :: TxInfo 
+    , scriptContextPurpose :: ScriptPurpose 
+    }
+    
+```
+
+</td>
+
+<td>
+
+```
+// scriptContextPurpose = new_minting || new_rewarding         || new_spending
+ScriptContext::[scriptContextPurpose](
+    tx:  Tx,
+    mph: MintingPolicyHash            || sc: StakingCredential || output_id: TxOutputId
+) -> ScriptContext
+    
+```
+
+</td>
+</tr>
+</table>
+
