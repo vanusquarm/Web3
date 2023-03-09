@@ -267,3 +267,37 @@ ScriptContext::[scriptContextPurpose](
 </tr>
 </table>
 
+
+<h4> Script Context Methods</h4>
+
+<table>
+<tr>
+<td> Plutus (Haskell) </td> <td> Helios </td>
+</tr>
+<tr>
+<td>
+
+```
+findOwnInput :: ScriptContext -> Maybe TxInInfo
+findContinuingOutputs :: ScriptContext -> [Integer]
+getContinuingOutputs :: ScriptContext -> [TxOut]
+ownCurrencySymbol :: ScriptContext -> CurrencySymbol
+    
+```
+
+</td>
+
+<td>
+
+```
+ctx.get_current_input() -> TxInput
+//
+ctx.get_cont_outputs() -> []TxOutput
+//
+    
+```
+
+</td>
+</tr>
+</table>
+
