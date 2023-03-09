@@ -121,7 +121,7 @@ txSignedBy :: TxInfo -> PubKeyHash -> Bool
 eg. txSignedBy tx mPubKeyHash
 
 findDatumHash :: Datum -> TxInfo -> Maybe DatumHash
-getContinuingOutputs :: ScriptContext -> [TxOut]
+--
 --
 valueLockedBy :: TxInfo -> ValidatorHash -> Value
 scriptOutputsAt :: ValidatorHash -> TxInfo -> [(DatumHash, Value)]
@@ -130,6 +130,12 @@ valuePaidTo :: TxInfo -> PubKeyHash -> Value
 --
 valueLockedBy :: TxInfo -> ValidatorHash -> Value
 --
+findDatum :: DatumHash -> TxInfo -> Maybe Datum
+findTxInByTxOutRef :: TxOutRef -> TxInfo -> Maybe TxInInfo
+pubKeyOutputsAt :: PubKeyHash -> TxInfo -> [Value]
+valueSpent :: TxInfo -> Value
+valueProduced :: TxInfo -> Value
+spendsOutput :: TxInfo -> TxId -> Integer -> Bool
 
 ```
 
@@ -153,6 +159,12 @@ tx.value_sent_to(addr: PubKeyHash) -> Value
 tx.value_sent_to_datum(addr: PubKeyHash, datum: AnyType, is_inline: Bool) -> Value
 tx.value_locked_by(script_hash: ValidatorHash) -> Value
 tx.value_locked_by_datum(script_hash: ValidatorHash, datum: AnyType, is_inline: Bool) -> Value
+//
+//
+//
+//
+//
+//
 
 ```
 
