@@ -294,6 +294,7 @@ findOwnInput :: ScriptContext -> Maybe TxInInfo
 findContinuingOutputs :: ScriptContext -> [Integer]
 getContinuingOutputs :: ScriptContext -> [TxOut]
 ownCurrencySymbol :: ScriptContext -> CurrencySymbol
+ownCurrencySymbol :: ScriptContext -> CurrencySymbol
     
 ```
 
@@ -305,8 +306,9 @@ ownCurrencySymbol :: ScriptContext -> CurrencySymbol
 ctx.get_current_input() -> TxInput
 //
 ctx.get_cont_outputs() -> []TxOutput
-//
-    
+ctx.get_current_validator_hash() -> ValidatorHash          // spending purpose scripts
+ctx.get_current_minting_policy_hash() -> MintingPolicyHash // minting purpose scripts
+
 ```
 
 </td>
