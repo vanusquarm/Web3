@@ -183,11 +183,12 @@ tx.value_locked_by_datum(script_hash: ValidatorHash, datum: AnyType, is_inline: 
 
 ```
 data TxOut = TxOut {
-    txOutAddress   :: Address,
-    txOutValue     :: Value,
-    txOutDatumHash :: Maybe DatumHash
-    }
-    
+    txOutAddress         :: Address,
+    txOutValue           :: Value,
+    txOutDatum           :: OutputDatum,
+    txOutDatumHash       :: Maybe DatumHash
+    txOutReferenceScript :: Maybe ScriptHash
+} 
     
 ```
 
@@ -200,9 +201,10 @@ TxOutput::new(
     address: Address,
     value:   Value,
     datum:   OutputDatum
+    //
+    //
 ) -> TxOutput
-
-    
+  
 ```
 
 </td>
